@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Développeur</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Portfolio - Wylan CAUMETTE | BUT Informatique 3A</title>
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">🔥 Portfolio</div>
+            <div class="logo">PORTFOLIO</div>
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#apropos">À propos</a></li>
                 <li><a href="#competences">Compétences</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#passions">Passions</a></li>
                 <li><a href="#projets">Projets</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -21,11 +25,13 @@
     </header>
 
     <main>
+        <div class="space-bg-zone">
         <section id="accueil" class="hero">
+            <canvas id="hero-starfield"></canvas>
             <div class="container">
                 <div class="hero-content">
-                    <h1>Bonjour, je suis Wylan</h1>
-                    <p>Passionné par la Programmation :3</p>
+                    <h1>Wylan CAUMETTE</h1>
+                    <p>Étudiant BUT Informatique 3ème Année — Motivé, curieux et ludique</p>
                     <a href="#projets" class="cta-button">Découvrir mes projets</a>
                 </div>
             </div>
@@ -35,24 +41,31 @@
             <div class="container">
                 <h2>À propos de moi</h2>
                 <div class="about-content">
-                    <div class="profile-img"></div>
+                    <div class="profile-wrapper">
+                        <img src="assets/images/Portrait_Wylan_HQ.jpg" alt="Wylan CAUMETTE" class="profile-img">
+                        <div class="profile-corner tl"></div>
+                        <div class="profile-corner tr"></div>
+                        <div class="profile-corner bl"></div>
+                        <div class="profile-corner br"></div>
+                        <div class="profile-scan"></div>
+                    </div>
                     <div class="about-text">
-                        <p>Je suis un développeur passionné avec une expertise dans la création d'applications web et de jeux. Mon approche combine créativité technique et innovation pour donner vie à des projets uniques et engageants.</p>
-                        <p>Spécialisé dans les technologies modernes, j'aime relever de nouveaux défis et explorer les dernières tendances du développement. Mon objectif est de créer des expériences utilisateur exceptionnelles qui marquent les esprits.</p>
-                        <p>Actuellement, je travaille sur plusieurs projets open source disponibles sur GitHub, allant des jeux de stratégie aux applications web complexes.</p>
-                        
+                        <p>Étudiant en BUT Informatique à l'IUT Sophia Antipolis, je suis passionné par le développement et les nouvelles technologies. Mon enthousiasme, ma curiosité et mon esprit d'équipe me permettent de m'investir pleinement dans chaque projet.</p>
+                        <p>Titulaire d'un Baccalauréat mention Assez Bien avec spécialisations Mathématiques et NSI, j'ai également obtenu un Brevet d'Initiation à l'Aéronautique (BIA) en 2022. Je suis véhiculé (Permis B) et disponible pour un contrat d'apprentissage d'un an.</p>
+                        <p>En dehors du développement, je pratique le badminton depuis 8 ans, j'aime le karting, la lecture et les jeux vidéo.</p>
+
                         <div class="github-stats">
                             <div class="stat-item">
-                                <div class="stat-number">3+</div>
-                                <div class="stat-label">Projets Actifs</div>
+                                <div class="stat-number">BUT 3A</div>
+                                <div class="stat-label">IUT Sophia Antipolis</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number">100+</div>
-                                <div class="stat-label">Commits</div>
+                                <div class="stat-number">1 an</div>
+                                <div class="stat-label">Alternance</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number">2+</div>
-                                <div class="stat-label">Ans d'expérience</div>
+                                <div class="stat-number">5</div>
+                                <div class="stat-label">Domaines de compétences</div>
                             </div>
                         </div>
                     </div>
@@ -65,53 +78,221 @@
                 <h2>Mes Compétences</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
-                        <h3>🌐 Développement Web</h3>
-                        <p>HTML5, CSS3, JavaScript</p>
+                        <h3>🌐 Langages & Web</h3>
+                        <p>Java (Springboot), Python (NumPy, Matplotlib), PHP, JavaScript, Bash, Bootstrap, PWA, REST</p>
                     </div>
                     <div class="skill-card">
-                        <h3>🎮 Développement de Jeux</h3>
-                        <p>Unity, Game Design, Logique de jeu, IA pour jeux</p>
+                        <h3>🛠️ Outils de dev</h3>
+                        <p>IntelliJ, VSCode, Maven</p>
                     </div>
                     <div class="skill-card">
-                        <h3>💻 Langages de Programmation</h3>
-                        <p>Python, Java, C#, JavaScript, SQL</p>
+                        <h3>🔄 Intégration continue / Tests</h3>
+                        <p>Git, GitHub, GitLab, JUnit5, SonarQube</p>
                     </div>
                     <div class="skill-card">
-                        <h3>🛠️ Outils & Technologies</h3>
-                        <p>Git, GitHub, Linux, Bases de données</p>
+                        <h3>🗄️ Bases de données</h3>
+                        <p>PostgreSQL, NoSQL (mongosh)</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>🖥️ Système & Réseaux</h3>
+                        <p>Programmation système Linux, Cisco Packet Tracer, Wireshark, WSL, Docker (Compose)</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>💬 Langues</h3>
+                        <p>Français (Courant), Anglais (Niveau B1)</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <section id="experience" class="section">
+            <div class="container">
+                <h2>Expérience</h2>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3>Technicien Informatique — Alternance</h3>
+                        <span class="experience-date">Septembre 2024 – Août 2025</span>
+                    </div>
+                    <p class="experience-company">Nice Informatique</p>
+                    <ul class="experience-list">
+                        <li>Accueil des clients et prise en charge en magasin</li>
+                        <li>Diagnostic des problèmes sur du matériel informatique</li>
+                        <li>Montage d'ordinateur et installation d'un système d'exploitation</li>
+                        <li>Ouverture et manipulation de matériel informatique</li>
+                        <li>Gestion des appels téléphoniques liés au magasin</li>
+                        <li>Dépannage au domicile des clients</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        </div>
+
+        <section id="passions" class="passions-section">
+
+            <!-- ══ ZONE SPATIALE ══ -->
+            <div class="passions-space-zone">
+                <canvas id="starfield-canvas"></canvas>
+                <div class="nebula nebula-1"></div>
+                <div class="nebula nebula-2"></div>
+                <div class="nebula nebula-3"></div>
+
+                <div class="container">
+                    <div class="space-zone-title">
+                        <span class="space-zone-label">// SCANNING PASSIONS.exe</span>
+                        <h2 class="space-heading">Mes Passions</h2>
+                        <div class="scan-line"></div>
+                    </div>
+
+                    <div class="space-cards">
+                        <div class="passion-card-space">
+                            <div class="card-hud-corner tl"></div>
+                            <div class="card-hud-corner tr"></div>
+                            <span class="card-icon">🎮</span>
+                            <h3>Jeux Vidéo</h3>
+                            <p>Des mondes numériques sans limites — exploration de RPG épiques, FPS tactiques et jeux de stratégie. Chaque partie, une nouvelle réalité à conquérir.</p>
+                            <span class="hud-line">SYS.PASSION_01 // ACTIVE</span>
+                        </div>
+                        <div class="passion-card-space">
+                            <div class="card-hud-corner tl"></div>
+                            <div class="card-hud-corner tr"></div>
+                            <span class="card-icon">🏎️</span>
+                            <h3>Karting</h3>
+                            <p>La vitesse comme langage, l'asphalte comme terrain de jeu. L'adrénaline pure d'un virage pris à la corde, la mécanique et le pilotage fusionnés.</p>
+                            <span class="hud-line">SYS.PASSION_02 // ACTIVE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ ZONE DE TRANSITION ══ -->
+            <div class="passions-transition">
+                <div class="transition-aurora"></div>
+                <div class="transition-horizon"></div>
+                <div class="transition-mist"></div>
+                <div class="transition-trees">
+                    <svg viewBox="0 0 1200 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="#0a1a03" opacity="0.9">
+                            <polygon points="100,200 130,80 160,200"/>
+                            <polygon points="115,200 145,50 175,200"/>
+                            <polygon points="240,200 265,95 290,200"/>
+                            <polygon points="255,200 280,65 305,200"/>
+                            <polygon points="400,200 430,75 460,200"/>
+                            <polygon points="420,200 450,45 480,200"/>
+                            <polygon points="560,200 590,90 620,200"/>
+                            <polygon points="580,200 610,55 640,200"/>
+                            <polygon points="720,200 748,80 776,200"/>
+                            <polygon points="738,200 766,50 794,200"/>
+                            <polygon points="880,200 905,85 930,200"/>
+                            <polygon points="895,200 920,60 945,200"/>
+                            <polygon points="1020,200 1048,75 1076,200"/>
+                            <polygon points="1040,200 1068,45 1096,200"/>
+                            <polygon points="1150,200 1170,90 1190,200"/>
+                        </g>
+                        <g fill="#0d2005" opacity="0.95">
+                            <polygon points="0,200 30,110 60,200"/>
+                            <polygon points="180,200 210,100 240,200"/>
+                            <polygon points="330,200 358,85 386,200"/>
+                            <polygon points="490,200 515,95 540,200"/>
+                            <polygon points="640,200 668,105 696,200"/>
+                            <polygon points="800,200 825,88 850,200"/>
+                            <polygon points="950,200 978,100 1006,200"/>
+                            <polygon points="1100,200 1125,95 1150,200"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- ══ ZONE FORÊT ══ -->
+            <div class="passions-forest-zone">
+                <div class="forest-ambient-light"></div>
+                <div class="forest-rays"></div>
+                <div id="fireflies-container"></div>
+
+                <div class="container">
+                    <div class="forest-zone-title">
+                        <span class="forest-zone-label">❧ Dans la forêt enchantée ❧</span>
+                    </div>
+
+                    <div class="forest-cards">
+                        <div class="passion-card-forest">
+                            <div class="bark-top"></div>
+                            <span class="card-icon">📚</span>
+                            <h3>Lecture</h3>
+                            <p>Des pages qui ouvrent des portails vers d'autres mondes. Fantasy, science-fiction, aventure — chaque livre, un voyage au cœur de l'imaginaire.</p>
+                            <span class="forest-flourish">✦</span>
+                        </div>
+                        <div class="passion-card-forest">
+                            <div class="bark-top"></div>
+                            <span class="card-icon">🏸</span>
+                            <h3>Badminton</h3>
+                            <p>8 ans de passion pour ce sport de précision et de vitesse. La complicité du double, la concentration du simple, le volant comme extension de soi.</p>
+                            <span class="forest-years">VIII ans de pratique</span>
+                            <span class="forest-flourish">✦</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forest-floor-svg">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0,80 Q150,20 300,70 Q450,120 600,60 Q750,10 900,65 Q1050,110 1200,55 L1200,120 L0,120 Z" fill="#050f02"/>
+                        <path d="M0,100 Q200,50 400,90 Q600,130 800,80 Q1000,40 1200,85 L1200,120 L0,120 Z" fill="#03090101" opacity="0.6"/>
+                    </svg>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="forest-bg-zone">
         <section id="projets" class="section">
             <div class="container">
                 <h2>Mes Projets GitHub</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">🎯</div>
-                        <div class="project-content">
-                            <h3>Pr3Dat3UR23</h3>
-                            <p>Projet principal regroupant mes différentes créations et expérimentations en développement. Une collection de scripts et d'outils utiles pour divers cas d'usage.</p>
-                            <a href="https://github.com/Pr3Dat3UR23" target="_blank" class="project-link">Voir sur GitHub</a>
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8249;</button>
+                    <div class="carousel-track-wrapper">
+                        <div class="carousel-track">
+                            <div class="project-card">
+                                <div class="project-header">📱</div>
+                                <div class="project-content">
+                                    <h3>App Mobile</h3>
+                                    <p>Application mobile développée dans le cadre du BUT Informatique. Projet alliant interface intuitive et fonctionnalités modernes pour une expérience utilisateur soignée.</p>
+                                    <a href="https://github.com/Pr3Dat3UR23/appmobile" target="_blank" class="project-link">Voir sur GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header">🎯</div>
+                                <div class="project-content">
+                                    <h3>Pr3Dat3UR23</h3>
+                                    <p>Projet principal regroupant mes différentes créations et expérimentations en développement. Une collection de scripts et d'outils utiles pour divers cas d'usage.</p>
+                                    <a href="https://github.com/Pr3Dat3UR23" target="_blank" class="project-link">Voir sur GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header">🎲</div>
+                                <div class="project-content">
+                                    <h3>Quoridor</h3>
+                                    <p>Implémentation du célèbre jeu de stratégie Quoridor. Un projet collaboratif développé avec des algorithmes de jeu avancés et une interface utilisateur intuitive.</p>
+                                    <a href="https://github.com/Picsou06/Quoridor" target="_blank" class="project-link">Voir sur GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header project-header--img">
+                                    <img src="assets/images/Rise_and_Fall.png" alt="Rise And Fall">
+                                </div>
+                                <div class="project-content">
+                                    <h3>Rise And Fall</h3>
+                                    <p>Jeu de stratégie ambitieux mêlant gestion de ressources et combat tactique. Développé en équipe avec une architecture robuste et des mécaniques de jeu innovantes.</p>
+                                    <a href="https://github.com/Kevin-OVI/RiseAndFall" target="_blank" class="project-link">Voir sur GitHub</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <div class="project-header">🎲</div>
-                        <div class="project-content">
-                            <h3>Quoridor</h3>
-                            <p>Implémentation du célèbre jeu de stratégie Quoridor. Un projet collaboratif développé avec des algorithmes de jeu avancés et une interface utilisateur intuitive.</p>
-                            <a href="https://github.com/Picsou06/Quoridor" target="_blank" class="project-link">Voir sur GitHub</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-header">⚔️</div>
-                        <div class="project-content">
-                            <h3>Rise And Fall</h3>
-                            <p>Jeu de stratégie ambitieux mêlant gestion de ressources et combat tactique. Développé en équipe avec une architecture robuste et des mécaniques de jeu innovantes.</p>
-                            <a href="https://github.com/Kevin-OVI/RiseAndFall" target="_blank" class="project-link">Voir sur GitHub</a>
-                        </div>
-                    </div>
+                    <button class="carousel-btn next" onclick="moveCarousel(1)">&#8250;</button>
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
+                    <span class="dot" onclick="goToSlide(3)"></span>
                 </div>
             </div>
         </section>
@@ -136,6 +317,7 @@
                 </form>
             </div>
         </section>
+        </div>
     </main>
 
     <footer>
@@ -145,7 +327,7 @@
                 <a href="mailto:wylan.caumette@gmail.com" title="Email">📧</a>
                 <a href="https://www.linkedin.com/in/wylan-caumette-b26816310/" title="LinkedIn">💼</a>
             </div>
-            <p>&copy; 2025 Portfolio Développeur. Tous droits réservés.</p>
+            <p>&copy; 2026 Wylan CAUMETTE. Tous droits réservés.</p>
         </div>
     </footer>
 
