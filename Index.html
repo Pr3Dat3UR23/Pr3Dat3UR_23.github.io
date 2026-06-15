@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Wylan CAUMETTE | BUT Informatique 3A</title>
-    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/style.css?v=5">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -41,13 +41,27 @@
             <div class="container">
                 <h2>À propos de moi</h2>
                 <div class="about-content">
-                    <div class="profile-wrapper">
-                        <img src="assets/images/Portrait_Wylan_HQ.jpg" alt="Wylan CAUMETTE" class="profile-img">
-                        <div class="profile-corner tl"></div>
-                        <div class="profile-corner tr"></div>
-                        <div class="profile-corner bl"></div>
-                        <div class="profile-corner br"></div>
-                        <div class="profile-scan"></div>
+                    <div class="profile-zone">
+                        <div class="profile-wrapper">
+                            <img src="assets/images/Portrait_Wylan_HQ.jpg" alt="Wylan CAUMETTE" class="profile-img">
+                            <canvas id="draw-canvas"></canvas>
+                            <div class="profile-corner tl"></div>
+                            <div class="profile-corner tr"></div>
+                            <div class="profile-corner bl"></div>
+                            <div class="profile-corner br"></div>
+                            <div class="profile-scan"></div>
+                        </div>
+                        <div class="draw-toolbar">
+                            <button class="draw-btn" id="draw-toggle" title="Mode dessin">✏️</button>
+                            <div class="draw-colors">
+                                <button class="color-swatch active" data-color="#00d4ff" style="--sc:#00d4ff" title="Cyan"></button>
+                                <button class="color-swatch" data-color="#ff4466" style="--sc:#ff4466" title="Rouge"></button>
+                                <button class="color-swatch" data-color="#ffd700" style="--sc:#ffd700" title="Jaune"></button>
+                                <button class="color-swatch" data-color="#ffffff" style="--sc:#ffffff" title="Blanc"></button>
+                            </div>
+                            <button class="draw-btn" id="draw-eraser" title="Gomme">🧹</button>
+                            <button class="draw-btn" id="draw-clear" title="Effacer tout">🗑️</button>
+                        </div>
                     </div>
                     <div class="about-text">
                         <p>Étudiant en BUT Informatique à l'IUT Sophia Antipolis, je suis passionné par le développement et les nouvelles technologies. Mon enthousiasme, ma curiosité et mon esprit d'équipe me permettent de m'investir pleinement dans chaque projet.</p>
@@ -68,7 +82,7 @@
                                 <div class="stat-label">Domaines de compétences</div>
                             </div>
                         </div>
-                        <a href="CV CAUMETTE Wylan BUT INFO 3A 2026.pdf" download class="cta-button" style="display:inline-block;margin-top:1.5rem;">Télécharger mon CV</a>
+                        <a href="CV CAUMETTE Wylan BUT INFO 3A 2026.pdf" download class="cta-button" style="display:inline-block;margin-top:1.5rem;" onclick="window.unlockAchievement?.('cv_download', '📄', 'Recruteur détecté', 'Tu as téléchargé le CV. Bonne lecture !')">Télécharger mon CV</a>
                     </div>
                 </div>
             </div>
@@ -79,30 +93,77 @@
                 <h2>Mes Compétences</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
-                        <h3>🌐 Langages & Web</h3>
-                        <p>Java (Springboot), Python (NumPy, Matplotlib), PHP, JavaScript, Bash, Bootstrap, PWA, REST</p>
+                        <div class="skill-card-icon">🌐</div>
+                        <h3>Langages & Web</h3>
+                        <div class="skill-tags">
+                            <a href="https://docs.oracle.com/en/java/" target="_blank" class="skill-tag">Java</a>
+                            <a href="https://spring.io/projects/spring-boot" target="_blank" class="skill-tag">Spring Boot</a>
+                            <a href="https://docs.python.org/3/" target="_blank" class="skill-tag">Python</a>
+                            <a href="https://numpy.org/doc/" target="_blank" class="skill-tag">NumPy</a>
+                            <a href="https://matplotlib.org/stable/" target="_blank" class="skill-tag">Matplotlib</a>
+                            <a href="https://www.php.net/docs.php" target="_blank" class="skill-tag">PHP</a>
+                            <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="_blank" class="skill-tag">JavaScript</a>
+                            <a href="https://www.gnu.org/software/bash/manual/" target="_blank" class="skill-tag">Bash</a>
+                            <a href="https://getbootstrap.com/docs/" target="_blank" class="skill-tag">Bootstrap</a>
+                            <a href="https://web.dev/explore/progressive-web-apps" target="_blank" class="skill-tag">PWA</a>
+                            <a href="https://restfulapi.net/" target="_blank" class="skill-tag">REST</a>
+                        </div>
                     </div>
                     <div class="skill-card">
-                        <h3>🛠️ Outils de dev</h3>
-                        <p>IntelliJ, VSCode, Maven</p>
+                        <div class="skill-card-icon">🛠️</div>
+                        <h3>Outils de dev</h3>
+                        <div class="skill-tags">
+                            <a href="https://www.jetbrains.com/idea/documentation/" target="_blank" class="skill-tag">IntelliJ IDEA</a>
+                            <a href="https://code.visualstudio.com/docs" target="_blank" class="skill-tag">VSCode</a>
+                            <a href="https://maven.apache.org/guides/" target="_blank" class="skill-tag">Maven</a>
+                        </div>
                     </div>
                     <div class="skill-card">
-                        <h3>🔄 Intégration continue / Tests</h3>
-                        <p>Git, GitHub, GitLab, JUnit5, SonarQube</p>
+                        <div class="skill-card-icon">🔄</div>
+                        <h3>CI / Tests</h3>
+                        <div class="skill-tags">
+                            <a href="https://git-scm.com/doc" target="_blank" class="skill-tag">Git</a>
+                            <a href="https://docs.github.com/fr" target="_blank" class="skill-tag">GitHub</a>
+                            <a href="https://docs.gitlab.com/" target="_blank" class="skill-tag">GitLab</a>
+                            <a href="https://junit.org/junit5/docs/current/user-guide/" target="_blank" class="skill-tag">JUnit 5</a>
+                            <a href="https://docs.sonarsource.com/sonarqube/latest/" target="_blank" class="skill-tag">SonarQube</a>
+                        </div>
                     </div>
                     <div class="skill-card">
-                        <h3>🗄️ Bases de données</h3>
-                        <p>PostgreSQL, NoSQL (mongosh)</p>
+                        <div class="skill-card-icon">🗄️</div>
+                        <h3>Bases de données</h3>
+                        <div class="skill-tags">
+                            <a href="https://www.postgresql.org/docs/" target="_blank" class="skill-tag">PostgreSQL</a>
+                            <a href="https://www.mongodb.com/docs/" target="_blank" class="skill-tag">MongoDB</a>
+                        </div>
                     </div>
                     <div class="skill-card">
-                        <h3>🖥️ Système & Réseaux</h3>
-                        <p>Programmation système Linux, Cisco Packet Tracer, Wireshark, WSL, Docker (Compose)</p>
+                        <div class="skill-card-icon">🖥️</div>
+                        <h3>Système & Réseaux</h3>
+                        <div class="skill-tags">
+                            <a href="https://linux.die.net/man/" target="_blank" class="skill-tag">Linux</a>
+                            <a href="https://www.netacad.com/courses/packet-tracer" target="_blank" class="skill-tag">Cisco Packet Tracer</a>
+                            <a href="https://www.wireshark.org/docs/" target="_blank" class="skill-tag">Wireshark</a>
+                            <a href="https://learn.microsoft.com/fr-fr/windows/wsl/" target="_blank" class="skill-tag">WSL</a>
+                            <a href="https://docs.docker.com/" target="_blank" class="skill-tag">Docker</a>
+                            <a href="https://docs.docker.com/compose/" target="_blank" class="skill-tag">Docker Compose</a>
+                        </div>
                     </div>
                     <div class="skill-card">
-                        <h3>💬 Langues</h3>
-                        <p>Français (Courant), Anglais (Niveau B1)</p>
+                        <div class="skill-card-icon">💬</div>
+                        <h3>Langues</h3>
+                        <div class="skill-tags">
+                            <a href="https://fr.wikipedia.org/wiki/Langue_fran%C3%A7aise" target="_blank" class="skill-tag skill-tag--lang">🇫🇷 Français — Courant</a>
+                            <a href="https://fr.wikipedia.org/wiki/Anglais" target="_blank" class="skill-tag skill-tag--lang">🇬🇧 Anglais — B1</a>
+                        </div>
                     </div>
                 </div>
+
+                <!-- ══ DÉ COMPÉTENCE ALÉATOIRE ══ -->
+                <div class="skills-footer">
+                    <button class="dice-btn" id="dice-btn" title="Compétence aléatoire">⚄</button>
+                </div>
+
             </div>
         </section>
 
@@ -124,6 +185,29 @@
                         <li>Dépannage au domicile des clients</li>
                     </ul>
                 </div>
+
+                <!-- ══ XP CLICKER MINECRAFT ══ -->
+                <div class="mc-xp-box">
+                    <div class="mc-xp-row">
+                        <span class="mc-level-badge">
+                            <span class="mc-lvl-lbl">Nv.</span>
+                            <span class="mc-level-num" id="mc-level">0</span>
+                        </span>
+                        <div class="mc-bar-wrap">
+                            <div class="mc-bar-track">
+                                <div class="mc-bar-fill" id="mc-bar-fill"></div>
+                            </div>
+                            <span class="mc-xp-nums" id="mc-xp-nums">0 / 7 XP</span>
+                        </div>
+                        <div class="mc-btn-zone">
+                            <button class="mc-btn" id="mc-btn" title="Gagner de l'XP">⬡</button>
+                            <div class="mc-particles" id="mc-particles"></div>
+                        </div>
+                    </div>
+                    <div class="mc-levelup" id="mc-levelup" aria-hidden="true">LEVEL UP</div>
+                    <button class="mc-reset" id="mc-reset" title="Réinitialiser">↺</button>
+                </div>
+
             </div>
         </section>
         </div>
@@ -145,22 +229,22 @@
                     </div>
 
                     <div class="space-cards">
-                        <div class="passion-card-space">
+                        <a class="passion-card-space" href="https://fr.wikipedia.org/wiki/Jeu_vid%C3%A9o" target="_blank" rel="noopener">
                             <div class="card-hud-corner tl"></div>
                             <div class="card-hud-corner tr"></div>
                             <span class="card-icon">🎮</span>
                             <h3>Jeux Vidéo</h3>
                             <p>Des mondes numériques sans limites — exploration de RPG épiques, FPS tactiques et jeux de stratégie. Chaque partie, une nouvelle réalité à conquérir.</p>
                             <span class="hud-line">SYS.PASSION_01 // ACTIVE</span>
-                        </div>
-                        <div class="passion-card-space">
+                        </a>
+                        <a class="passion-card-space" href="https://fr.wikipedia.org/wiki/Karting" target="_blank" rel="noopener">
                             <div class="card-hud-corner tl"></div>
                             <div class="card-hud-corner tr"></div>
                             <span class="card-icon">🏎️</span>
                             <h3>Karting</h3>
                             <p>La vitesse comme langage, l'asphalte comme terrain de jeu. L'adrénaline pure d'un virage pris à la corde, la mécanique et le pilotage fusionnés.</p>
                             <span class="hud-line">SYS.PASSION_02 // ACTIVE</span>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -215,21 +299,21 @@
                     </div>
 
                     <div class="forest-cards">
-                        <div class="passion-card-forest">
+                        <a class="passion-card-forest" href="https://fr.wikipedia.org/wiki/Lecture" target="_blank" rel="noopener">
                             <div class="bark-top"></div>
                             <span class="card-icon">📚</span>
                             <h3>Lecture</h3>
                             <p>Des pages qui ouvrent des portails vers d'autres mondes. Fantasy, science-fiction, aventure — chaque livre, un voyage au cœur de l'imaginaire.</p>
                             <span class="forest-flourish">✦</span>
-                        </div>
-                        <div class="passion-card-forest">
+                        </a>
+                        <a class="passion-card-forest" href="https://fr.wikipedia.org/wiki/Badminton" target="_blank" rel="noopener">
                             <div class="bark-top"></div>
                             <span class="card-icon">🏸</span>
                             <h3>Badminton</h3>
                             <p>8 ans de passion pour ce sport de précision et de vitesse. La complicité du double, la concentration du simple, le volant comme extension de soi.</p>
                             <span class="forest-years">VIII ans de pratique</span>
                             <span class="forest-flourish">✦</span>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
