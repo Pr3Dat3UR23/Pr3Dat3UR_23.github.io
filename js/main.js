@@ -255,7 +255,7 @@ function spawnBinaryRain(originX, originY) {
     const toggle   = document.getElementById('draw-toggle');
     const clearBtn = document.getElementById('draw-clear');
     const swatches = document.querySelectorAll('.color-swatch');
-    if (!canvas || !toggle) return;
+    if (!canvas || !toggle || !wrapper) return;
 
     const eraserBtn = document.getElementById('draw-eraser');
     const ctx = canvas.getContext('2d');
