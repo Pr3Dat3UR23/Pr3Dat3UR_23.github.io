@@ -266,11 +266,19 @@ function spawnBinaryRain(originX, originY) {
 
     function syncSize() {
         const r = wrapper.getBoundingClientRect();
-        canvas.width  = r.width;
-        canvas.height = r.height;
+        if (r.width > 0 && r.height > 0) {
+            canvas.width  = Math.round(r.width);
+            canvas.height = Math.round(r.height);
+        }
+    }
+    const profileImg = wrapper.querySelector('img');
+    if (profileImg && !profileImg.complete) profileImg.addEventListener('load', syncSize);
+    if (window.ResizeObserver) {
+        new ResizeObserver(syncSize).observe(wrapper);
+    } else {
+        window.addEventListener('resize', syncSize);
     }
     syncSize();
-    window.addEventListener('resize', () => { syncSize(); });
 
     function getPos(e) {
         const r   = canvas.getBoundingClientRect();
